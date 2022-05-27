@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.starting, #rule{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 500px;
+    padding: 2rem;
+}
+
+.starting > div > label > input, #back, #close{
+    text-align: center;
+    margin-left: 2rem;
+    width: 250px;
+    padding: 0.3rem;
+    border: none;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+.close{
+    margin: 1rem 0 -1rem 0;
+    text-align: right;
+}
+
+.rule-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rule {
+    width: 800px;
+    text-align: justify;
+    line-height: 1.3rem;
+}
+
+#rule > h1 {
+
+    text-align: center;
+}
+
+#rule > h2 {
+    margin: 0;
+}
+
+#rule > p {
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+#rule > ol {
+    margin-left: 2rem;
+}
+
+#rule > ol > li {
+    margin: 0.3rem;
+}
+
+#back {
+    margin-top: 1.3rem;
+}
+
+#start {
+    width: 265px;
+    margin-left: 8.5rem;
+}
+
+#description {
+    width: 265px;
+    margin-left: 9.4rem;
+}
+
+#playerNumber {
+    margin-left: 8.2rem;
+}
+
+.can {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 5rem auto;
+    display: none;
+}
+
+canvas {
+    border: 1px solid brown;
+    text-align: center;
+}
+
+#current {
+    position: absolute;
+    top: 10%;
+    right: 1rem;
+}
+
+#current > p {
+    margin-bottom: 1.5rem;
+}
+
+#back {
+    position: absolute;
+    top: 90%;
+    right: 5px;
+}
+
+input[type="submit"]:hover, input[type="number"]:hover, #close:hover, #back:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+#currentA {
+    margin-left: 8.5rem;
+    margin-top: -2.5rem;
+}

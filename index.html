@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Varázslatos katakomba</title>
+</head>
+
+<body oncontextmenu="return false;">
+    <div class="starting">
+        <h1>Varázslatos katakomba</h1>
+        <div class="first">
+            <label for="start">Játék indítása:
+                <input type="submit" name="start" id="start" value="Indít">
+            </label>
+        </div>
+        <br>
+        <div class="second">
+            <label for="description">Játék leírás:
+                <input type="submit" name="description" id="description" value="Leírás">
+            </label>
+        </div>
+        <br>
+        <div class="third">
+            <label for="player_number">Játékos száma:
+                <input type="number" name="player_number" id="playerNumber" min=1 max=4 value=2>
+            </label>
+        </div>
+        <br>
+        <div class="fourth">
+            <label for="treasure_number">Kincsek száma játékosonként:
+                <input type="number" name="treasure_number" id="treasureNumber" min=1 max=24 value=2>
+            </label>
+        </div>
+    </div>
+
+    <div class="rule-container">
+        <div id="rule">
+            <h1>Játék leírása</h1>
+            <h2>Tábla</h2>
+            <p>
+                A katakomba szobáit egy 7x7-es négyzetrács cellái jelképezik.
+                Minden szoba esetén adott, hogy mely falain van ajtó.
+                Ha két szomszédos szoba érintkező falán egy-egy ajtó van, akkor át lehet menni egyik szobából a másikba.
+                A négyzetrács páros sorait és oszlopait el lehet tolni, a többi szoba végig rögzített a játék során.
+                Az eltolásokkal az ajtókon keresztül utak nyílnak a szobák között, így lehet eljutni a kincsekhez.
+                Mindegyik kérő arra törekszik, hogy a katakomba szobáinak ötletes eltolásával eljusson a kincsekhez.
+                Aki elsőként találja meg mindahányat és kiindulópontjára sikeresen visszaérkezik az a nyertes.
+            </p>
+            <p>
+                A szobák véletlenszerűen felkerülnek a táblára.
+                A szobák közül az egyik mindenképpen fölösleges marad.
+                A játék folyamán majd mindig az éppen kimaradó szobát használjuk a többi szoba elcsúsztatására.
+                A játékban legfeljebb 24 kincset kell megtalálni.
+            </p>
+            <h2>Cél</h2>
+            <p>
+                A játék során minden játékosnak a kincsei közül azt kell megszereznie, amit az aktuálisan legfelső,
+                mindenki által látható kincskártya mutat.
+                Arra a mezőre kell eljutni. Ahhoz, hogy a célt elérje, a játékosnak
+                <h3>Lépés</h3>
+                <ol>
+                    <li>először a katakombát kell átalakítania a kimaradt szoba becsúsztatásával, és</li>
+                    <li>lépnie mindig csak ez után szabad a figurájával.</li>
+                </ol>
+            </p>
+            <h2>A katakomba átalakítása</h2>
+            <p>
+                A játékos a kimaradt szobát (tetszőlegesen elforgatva) valamelyik oldalról becsúsztathatja a játéktábla
+                területére egy szabadon mozgó sor vagy oszlop szélén, aminek következtében az átellenes oldalon kiesik
+                egy másik szoba.
+                A tábla szélén nyilak jelzik azokat a helyeket, ahol a szobát be lehet csúsztatni.
+                A szoba bárhol betolható, kivétel ott, ahol az imént kilökődött.
+                Ha a szobák eltolása során a szobával együtt egy figura is kitolódnék – akár másé, akár a miénk -, akkor
+                az a figura a másik oldalra kerül.
+            </p>
+            <h2>Játékos lépése a figurával.</h2>
+            <p>
+                A szobák eltolását követi után léphet a figura.
+                A katakomba minden olyan pontjáig el lehet jutni, amelyet a kiindulóponttal folyamatos járatvonal köt
+                össze.
+                Az ilyen járatokban tehát olyan messzire mehetünk el, amilyen messzire csak akarunk, vagyis nem számít,
+                hogy hány szobán lépkedünk végig.
+                Nem kötelező lépni.
+                Figuránkat akár ott is hagyhatjuk, ahol éppen van.
+                Egy mezőn több figura is állhat: a figurák nem ütik ki egymást.
+                Ha valaki nem tud rögtön céljáig eljutni, akkor figurájával addig a pontig célszerű elmennie, ahol
+                feltehetőleg jó helyzetben várhatja következő lépést.
+                Ha valaki elérte a felfedett kincskártya által megjelölt célt, akkor felfedi a következőt, és most ehhez
+                a célhoz igyekszik eljutni
+            </p>
+            <h2>Játék vége</h2>
+            <p>
+                Ha egy játékos az összes kincskártyájához tartozó kincset megszerezte, és visszavezette a figuráját arra
+                mezőre, ahonnan elindult.
+                Az a győztes, aki valamennyi kincsét megtalálta és figuráját elsőként juttatta vissza a kiindulópontra.
+            </p>
+
+            <div class="close">
+                <label for="close">
+                    <input type="submit" name="close" id="close" value="Bezár">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="can">
+        <canvas></canvas>
+
+        <div id="current">
+            <p>Jelenlegi játékos: <span id="currentP"></span></p>
+            <p>Jelenlegi játékos kincse: <span id="currentT"></span></p>
+            <p>Még hátra van <span id="currentS"></span> db kincs!</p>
+            <p>Eddig megszerezte: <div id="currentA"></div>
+            </p>
+        </div>
+
+        <div class="back">
+            <label for="backBtn">
+                <input type="submit" value="Vissza a menübe" id="back" name="backBtn">
+            </label>
+        </div>
+    </div>
+
+    <script src="./js/board.js"></script>
+
+    <script src="./js/straightline_shape.js"></script>
+    <script src="./js/curve_shape.js"></script>
+    <script src="./js/t_shape.js"></script>
+
+    <script src="./js/startPoint.js"></script>
+    <script src="./js/player.js"></script>
+
+    <script src="./js/arrow.js"></script>
+
+    <script src="./js/treause.js"></script>
+
+    <script src="./js/app.js"></script>
+
+    <script src="./js/start.js"></script>
+
+</body>
+
+</html>
